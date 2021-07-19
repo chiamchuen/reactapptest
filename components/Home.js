@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Dimensions, TouchableOpacity } from 'react-native';
 import {useFonts} from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import colors from '../assets/colors/colors';
@@ -11,7 +11,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 
 
-export default function Home () {
+
+export default function Home ( { navigation }) {
   let[fontsLoaded, error]=useFonts({
     'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
     'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -72,11 +73,13 @@ export default function Home () {
       <Text style={styles.countryText}>Add another country</Text>
     </View>
 
-    <View style={styles.nextWrapper}>
-      <View style={styles.nextBox}>
-        <Text style={styles.nextText}>Next</Text>
+    <TouchableOpacity onPress={() => navigation.navigate('question2')}>
+      <View style={styles.nextWrapper}>
+        <View style={styles.nextBox}>
+          <Text style={styles.nextText}>Next</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
 
   </View>
   

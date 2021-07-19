@@ -7,11 +7,13 @@ import colors from './assets/colors/colors';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './components/Home';
 import { color } from 'react-native-reanimated';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
+
+import Home from './components/Home';
+import question2 from './components/question2';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +21,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{ headerShown: false,}} />
+        <Stack.Screen 
+          name="Home" 
+          component={Home} 
+          options={{ 
+            headerShown: false,
+          }} 
+        />
+
+        <Stack.Screen 
+          name="question2" 
+          component={question2} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   
