@@ -9,6 +9,7 @@ import { color } from 'react-native-reanimated';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
+import Checkbox from 'expo-checkbox';
 
 export default function question2 ({ navigation }) {
     let[fontsLoaded, error]=useFonts({
@@ -35,15 +36,30 @@ export default function question2 ({ navigation }) {
           <Text style={styles.exitWord}>Exit</Text>
         </View>
 
-        {/* back */}
+        {/* Question */}
+        <View style={styles.questionTitleWrapper}>
+            <Text style={styles.question1}>Question 2</Text>
+        </View>
 
-        <TouchableOpacity onPress={() => navigation.goBack()} >
-            <View style={styles.backWrapper}>
-                <View style={styles.backBox}>
-                    <Text style={styles.backText}>Back</Text>
-                </View>
+        <View style={styles.questionWrapper}>
+            <Text style={styles.questionContent}>Select all the statements that apply to you.</Text>
+        </View>
+
+        {/* back and next */}
+        <View style={styles.bottomWrapper}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backWrapper}>
+            <View style={styles.backBox}>
+              <Text style={styles.backText}>Back</Text>
             </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('question3')} style={styles.nextWrapper}> 
+            <View style={styles.nextBox}>
+              <Text style={styles.nextText}>Next</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        
     </View>
     );
 }
@@ -84,25 +100,79 @@ const styles = StyleSheet.create({
         marginLeft: 2,
     },
 
-    backWrapper: {
-        marginTop: 574,
-        marginLeft: 40,
-    },
+    questionTitleWrapper: {
+        marginTop: 22,
+        marginLeft: 116,
+      },
+      question1: {
+        fontSize: 25,
+        fontFamily: 'Montserrat-Bold',
+        color: colors.darkestGreen,
+      },
+    
+      questionWrapper: {
+        width: 317,
+        height: 74,
+        borderRadius: 14,
+        backgroundColor: colors.midGreen,
+        marginTop: 23,
+        marginLeft: 29,
+      },
+    
+      questionContent: {
+        fontSize: 20,
+        fontFamily: 'Lato-Bold',
+        color: '#fff',
+        paddingTop: 10,
+        paddingLeft: 26,
+      },
 
-    backBox: {
+      bottomWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 300,
+      },
+
+      backWrapper: {
+          marginLeft: 40,
+      },
+
+      backBox: {
+          height: 38,
+          width: 91,
+          borderRadius: 38,
+          borderColor: colors.darkGreen,
+          borderWidth: 2,
+      },
+
+      backText: {
+          fontFamily: 'Lato-Bold',
+          fontSize: 20,
+          color: colors.darkGreen,
+          paddingTop: 5,
+          marginHorizontal: 21,
+      },
+
+      nextWrapper: {
+        marginLeft: 128,
+      },
+    
+      nextBox: {
         height: 38,
         width: 91,
         borderRadius: 38,
-        borderColor: colors.darkGreen,
-        borderWidth: 2,
-    },
-
-    backText: {
+        backgroundColor: colors.midGreen,
+        shadowColor: '#000',
+        shadowOffset: { width: 2, height: 4 },
+        shadowOpacity: 0.25,
+      },
+    
+      nextText: {
         fontFamily: 'Lato-Bold',
         fontSize: 20,
-        color: colors.darkGreen,
-        paddingTop: 5,
-        marginHorizontal: 21,
-    },
+        color: '#fff',
+        marginTop: 7,
+        marginHorizontal: 23,
+      },
   });
   

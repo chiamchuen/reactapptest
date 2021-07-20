@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Dimensions, TouchableOpacity } from 'react-native';
 import {useFonts} from 'expo-font';
 import AppLoading from 'expo-app-loading';
@@ -9,10 +9,38 @@ import { color } from 'react-native-reanimated';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
+import { Checkbox } from 'react-native-paper';
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 
-
+const RadioButton = ({ onPress, selected, children }) => {
+  return (
+    <View style={styles.radioButtonContainer}>
+      <TouchableOpacity onPress={onPress} style={styles.radioButton}>
+        {selected ? <View style={styles.radioButtonIcon} /> : null}
+      </TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
+        <Text style={styles.radioButtonText}>{children}</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 export default function Home ( { navigation }) {
+
+  const [isLiked, setIsLiked] = useState([
+    { id: 1, value: true, name: "No, I have not.", selected: false },
+    { id: 2, value: false, name: "Yes, I have.", selected: false }
+  ]);
+
+  const onRadioBtnClick = (item) => {
+    let updatedState = isLiked.map((isLikedItem) =>
+      isLikedItem.id === item.id
+        ? { ...isLikedItem, selected: true }
+        : { ...isLikedItem, selected: false }
+    );
+    setIsLiked(updatedState);
+  };
+
   let[fontsLoaded, error]=useFonts({
     'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
     'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -23,6 +51,8 @@ export default function Home ( { navigation }) {
   if (!fontsLoaded){
     return <AppLoading />
   }
+
+
   return (
   <View style={styles.container}>
     {/* header */}
@@ -47,15 +77,39 @@ export default function Home ( { navigation }) {
     </View>
 
     {/* options */}
-    <View style={styles.optionsWrapper}>
-      <View style={styles.optionsBox}></View>
-      <Text style={styles.optionsText}>No, I have not.</Text>
+    {/*<View style={styles.optionsWrapper}>
+      <BouncyCheckbox
+        isChecked={checkboxState}
+        disableBuiltInState
+        onPress={() => setCheckboxState(!checkboxState)} 
+        fillColor={colors.darkestGreen} 
+        iconStyle={{ borderColor: colors.darkestGreen, borderRadius: 6, height: 23, width: 23, borderWidth: 1, }} 
+        text = "No, I have not." 
+        textStyle={{ fontFamily: 'Lato-Regular', textDecorationLine: 'none', }}
+      />
     </View>
 
     <View style={styles.optionsWrapper2}>
-      <View style={styles.optionsBox}></View>
-      <Text style={styles.optionsText}>Yes, I have.</Text>
+      <BouncyCheckbox
+        isChecked={checkboxState}
+        disableBuiltInState
+        onPress={() => setCheckboxState(!checkboxState)} 
+        fillColor={colors.darkestGreen} 
+        iconStyle={{ borderColor: colors.darkestGreen, borderRadius: 6, height: 23, width: 23, borderWidth: 1, }} 
+        text = "Yes, I have." 
+        textStyle={{ fontFamily: 'Lato-Regular', textDecorationLine: 'none', }}
+      />
     </View>
+  */}
+    {isLiked.map((item) => (
+      <RadioButton
+        onPress={() => onRadioBtnClick(item)}
+        selected={item.selected}
+        key={item.id}
+      >
+        {item.name}
+      </RadioButton>
+    ))}
 
     <View style={styles.selectWrapper}>
       <View style={styles.inputbox}>
@@ -72,12 +126,18 @@ export default function Home ( { navigation }) {
       <FontAwesome name="plus-square-o" size={23} color={'#707070'} />
       <Text style={styles.countryText}>Add another country</Text>
     </View>
-
+    {/*
     <TouchableOpacity onPress={() => navigation.navigate('question2')}>
       <View style={styles.nextWrapper}>
         <View style={styles.nextBox}>
           <Text style={styles.nextText}>Next</Text>
         </View>
+      </View>
+    </TouchableOpacity>
+    */}
+    <TouchableOpacity onPress={() => navigation.navigate('question2')} style={styles.nextWrapper}> 
+      <View style={styles.nextBox}>
+        <Text style={styles.nextText}>Next</Text>
       </View>
     </TouchableOpacity>
 
@@ -148,6 +208,39 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 26,
   },
+
+  radioButtonContainer: {
+    marginTop: 40,
+    marginHorizontal: 42,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  radioButton: {
+    height: 20,
+    width: 20,
+    backgroundColor: "#F8F8F8",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#E6E6E6",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
+  radioButtonIcon: {
+    height: 14,
+    width: 14,
+    borderRadius: 7,
+    backgroundColor: colors.darkestGreen
+  },
+
+  radioButtonText: {
+    fontFamily: 'Lato-Regular',
+    fontSize: 16,
+    marginHorizontal: 15,
+    color: '#707070',
+  },
+
 
   optionsWrapper: {
     marginTop: 62,

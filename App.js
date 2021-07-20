@@ -14,6 +14,12 @@ import { Triangle } from 'react-native-shape';
 
 import Home from './components/Home';
 import question2 from './components/question2';
+import question3 from './components/question3';
+import question4 from './components/question4';
+import question5 from './components/question5';
+import question6 from './components/question6';
+import question7 from './components/question7';
+import question8 from './components/question8';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +42,56 @@ export default function App() {
             headerShown: false,
           }}
         />
+
+        <Stack.Screen 
+          name="question3" 
+          component={question3} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen 
+          name="question4" 
+          component={question4} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen 
+          name="question5" 
+          component={question5} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen 
+          name="question6" 
+          component={question6} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen 
+          name="question7" 
+          component={question7} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen 
+          name="question8" 
+          component={question8} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
+
+
       </Stack.Navigator>
     </NavigationContainer>
   
