@@ -12,7 +12,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 
-import Home from './components/Home';
+import home from './components/home';
+import question1 from './components/question1';
 import question2 from './components/question2';
 import question3 from './components/question3';
 import question4 from './components/question4';
@@ -28,8 +29,16 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
-          name="Home" 
-          component={Home} 
+          name="home" 
+          component={home} 
+          options={{ 
+            headerShown: false,
+          }} 
+        />
+
+        <Stack.Screen 
+          name="question1" 
+          component={question1} 
           options={{ 
             headerShown: false,
           }} 
