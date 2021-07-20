@@ -10,6 +10,23 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 import Checkbox from 'expo-checkbox';
+import RadioButtonRN from 'radio-buttons-react-native';
+
+const data = [
+  {
+    label: 'Once every few hours'
+   },
+   {
+    label: 'Once a day'
+   },
+   {
+    label: 'Once every few days'
+   },
+   {
+    label: 'Once a week'
+   },
+   
+];
 
 export default function question8 ({ navigation }) {
     let[fontsLoaded, error]=useFonts({
@@ -24,9 +41,36 @@ export default function question8 ({ navigation }) {
     }
 
     return (
-        <View>
-            <Text>question8</Text>
+        <View style={styles.container}>
 
+          {/* header */}
+          <View style={styles.headerWrapper}>
+            <Text style={styles.headerTitle}>Hello Doctor</Text>
+          </View>
+
+          {/* exit */}
+          <View style={styles.exitWrapper}>
+            <AntDesign name="caretleft" size={12} color={colors.darkestGreen} />
+            <Text style={styles.exitWord}>Exit</Text>
+          </View>
+
+
+          {/* Question */}
+          <View style={styles.questionTitleWrapper}>
+            <Text style={styles.question1}>Question 8</Text>
+          </View>
+
+          <View style={styles.questionWrapper}>
+            <Text style={styles.questionContent}>How frequently do you    experience these headaches?</Text>
+          </View>
+          <RadioButtonRN
+            data={data}
+            selectedBtn={(e) => console.log(e)} 
+            box={false}
+            style={{ marginLeft: 42, marginTop: 30 }}
+            textStyle={{ fontFamily: 'Lato-Regular', fontSize: 16, marginLeft: 30, }}
+            activeColor={colors.darkestGreen}
+          />
             {/* back and next */}
             <View style={styles.bottomWrapper}>
               <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backWrapper}>
@@ -35,9 +79,9 @@ export default function question8 ({ navigation }) {
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity> 
+              <TouchableOpacity onPress={() => navigation.navigate('question7')} style={styles.nextWrapper}> 
                 <View style={styles.nextBox}>
-                  <Text style={styles.nextText}>End</Text>
+                  <Text style={styles.nextText}>Next</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -54,10 +98,68 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
 
+    headerWrapper: {
+      backgroundColor: colors.lightGreen,
+      height: 105,
+      width: Dimensions.get('screen').width,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    headerTitle: {
+      fontSize: 22,
+      fontFamily: 'Montserrat-Bold',
+      color: '#fff',
+      paddingTop: 52,
+    },
+  
+    exitWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: 28,
+      marginTop: 28,
+    },
+  
+  
+    exitWord: {
+      fontSize: 16,
+      fontFamily: 'Lato-Regular',
+      color: colors.darkestGreen,
+      marginLeft: 2,
+    },
+  
+    questionTitleWrapper: {
+      marginTop: 22,
+      marginLeft: 116,
+    },
+    question1: {
+      fontSize: 25,
+      fontFamily: 'Montserrat-Bold',
+      color: colors.darkestGreen,
+    },
+  
+    questionWrapper: {
+      width: 317,
+      height: 74,
+      borderRadius: 14,
+      backgroundColor: colors.midGreen,
+      marginTop: 23,
+      marginLeft: 29,
+    },
+  
+    questionContent: {
+      fontSize: 20,
+      fontFamily: 'Lato-Bold',
+      color: '#fff',
+      paddingTop: 10,
+
+      textAlign: 'center',
+    },
+  
     bottomWrapper: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 300,
+      marginTop: 190,
     },
 
     backWrapper: {

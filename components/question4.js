@@ -24,9 +24,48 @@ export default function question4 ({ navigation }) {
     }
 
     return (
-        <View>
-            <Text>question4</Text>
+      <View style={styles.container}>
+      {/* header */}
+      <View style={styles.headerWrapper}>
+        <Text style={styles.headerTitle}>Hello Doctor</Text>
+      </View>
 
+      {/*question no.*/}
+      <View style={styles.questionTitleWrapper}>
+        <Text style={styles.question1}>Question 4</Text>
+      </View>
+
+      {/* question */}
+      <View style={styles.questionWrapper}>
+        <Text style={styles.questionContent}>How long have these symptoms lasted for?</Text>
+      </View>
+      
+      {/*symptom*/}
+      <Text style = {styles.symptomText}>Headache</Text>
+
+      {/*selects*/}
+        <View style={styles.selectWrapper}>
+          <View style={styles.inputbox}>
+            <View style={styles.arrowWrapper}>
+              <Text style={styles.selectText}>- Select -</Text>
+              <View marginLeft={163} marginTop={18} >
+                <AntDesign name="caretdown" size={16} color={'#707070'} />
+              </View>
+            </View>
+          </View>
+        </View>
+
+      <Text style = {styles.symptomText}>Nausea</Text>
+      <View style={styles.selectWrapper}>
+          <View style={styles.inputbox}>
+            <View style={styles.arrowWrapper}>
+              <Text style={styles.selectText}>- Select -</Text>
+              <View marginLeft={163} marginTop={18} >
+                <AntDesign name="caretdown" size={16} color={'#707070'} />
+              </View>
+            </View>
+          </View>
+        </View>
             {/* back and next */}
             <View style={styles.bottomWrapper}>
               <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backWrapper}>
@@ -42,22 +81,76 @@ export default function question4 ({ navigation }) {
               </TouchableOpacity>
             </View>
         </View>
-
-
-
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+
+  headerWrapper: {
+      backgroundColor: colors.lightGreen,
+      height: 105,
+      width: Dimensions.get('screen').width,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+  headerTitle: {
+      fontSize: 22,
+      fontFamily: 'Montserrat-Bold',
+      color: '#fff',
+      paddingTop: 52,
+  },
+  
+  exitWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: 28,
+      marginTop: 28,
+  },
+  
+  exitWord: {
+      fontSize: 16,
+      fontFamily: 'Lato-Regular',
+      color: colors.darkestGreen,
+      marginLeft: 2,
+  },
+
+  questionTitleWrapper: {
+      marginTop: 22,
+      marginLeft: 116,
+    },
+    question1: {
+      fontSize: 25,
+      fontFamily: 'Montserrat-Bold',
+      color: colors.darkestGreen,
+    },
+  
+    questionWrapper: {
+      width: 317,
+      height: 74,
+      borderRadius: 14,
+      backgroundColor: colors.midGreen,
+      marginTop: 23,
+      marginLeft: 29,
+    },
+  
+    questionContent: {
+      fontSize: 20,
+      fontFamily: 'Lato-Bold',
+      color: '#fff',
+      paddingTop: 12,
+      paddingLeft: 21,
     },
 
     bottomWrapper: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 300,
+      marginTop: 200,
+      
     },
 
     backWrapper: {
@@ -82,6 +175,7 @@ const styles = StyleSheet.create({
 
     nextWrapper: {
       marginLeft: 128,
+      marginTop:0
     },
   
     nextBox: {
@@ -101,5 +195,38 @@ const styles = StyleSheet.create({
       marginTop: 7,
       marginHorizontal: 23,
     },
-  });
+    selectWrapper: {
+      marginTop: 18,
+      paddingHorizontal: 41,
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    selectText: {
+      fontFamily: 'Lato-Regular',
+      fontSize: 16,
+      color: '#707070',
+      marginTop: 14,
+      marginLeft: 29,
+    },
+    arrowWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    inputbox: {
+      width: 293,
+      height: 52,
+      borderRadius: 29,
+      backgroundColor: colors.input,
+    },
+    
+    symptomText: {
+      fontFamily: 'Lato-Regular',
+      fontSize: 16,
+      color: colors.darkestGreen,
+      marginTop : 36,
+      marginHorizontal: 46,
+    }
+
+},
+);
   
