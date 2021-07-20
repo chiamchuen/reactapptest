@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         paddingTop: 10,
         paddingLeft: 26,
+        alignItems: 'center',
       },
 
       bottomWrapper: {
