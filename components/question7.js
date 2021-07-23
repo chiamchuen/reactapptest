@@ -65,7 +65,7 @@ export default function question7 ({ navigation }) {
           </View>
 
           <View style={styles.questionWrapper}>
-            <Text style={styles.questionContent}>How long does your headache lastttttt?</Text>
+            <Text style={styles.questionContent}>How long does your headache lastt?</Text>
           </View>
 
           <RadioButtonRN
