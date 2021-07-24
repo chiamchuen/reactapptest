@@ -24,34 +24,107 @@ export default function question5 ({ navigation }) {
     }
 
     return (
-        <View>
-            <Text>question5</Text>
+      <View style={styles.container}>
+      {/* header */}
+      <View style={styles.headerWrapper}>
+        <Text style={styles.headerTitle}>Hello Doctor</Text>
+      </View>
+  
+      {/* exit */}
+      <View style={styles.exitWrapper}>
+        <AntDesign name="caretleft" size={12} color={colors.darkestGreen} />
+        <Text style={styles.exitWord}>Exit</Text>
+      </View>
 
-            {/* back and next */}
-            <View style={styles.bottomWrapper}>
-              <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backWrapper}>
-                <View style={styles.backBox}>
-                  <Text style={styles.backText}>Back</Text>
-                </View>
-              </TouchableOpacity>
+      {/* Question */}
+      <View style={styles.questionTitleWrapper}>
+          <Text style={styles.question1}>Question 5</Text>
+      </View>
 
-              <TouchableOpacity onPress={() => navigation.navigate('question6')} style={styles.nextWrapper}> 
-                <View style={styles.nextBox}>
-                  <Text style={styles.nextText}>Next</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-        </View>
+      <View style={styles.questionWrapper}>
+          <Text style={styles.questionContent}>Rate the severity of your {"\n"}headache.</Text>
+      </View>
 
+      {/* back and next */}
+      <View style={styles.bottomWrapper}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backWrapper}>
+          <View style={styles.backBox}>
+            <Text style={styles.backText}>Back</Text>
+          </View>
+        </TouchableOpacity>
 
+        <TouchableOpacity onPress={() => navigation.navigate('question4')} style={styles.nextWrapper}> 
+          <View style={styles.nextBox}>
+            <Text style={styles.nextText}>Next</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      
+  </View>
 
     );
 }
-
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+
+  headerWrapper: {
+      backgroundColor: colors.lightGreen,
+      height: 105,
+      width: Dimensions.get('screen').width,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+  headerTitle: {
+      fontSize: 22,
+      fontFamily: 'Montserrat-Bold',
+      color: '#fff',
+      paddingTop: 52,
+  },
+  
+  exitWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: 28,
+      marginTop: 28,
+  },
+  
+  exitWord: {
+      fontSize: 16,
+      fontFamily: 'Lato-Regular',
+      color: colors.darkestGreen,
+      marginLeft: 2,
+  },
+
+  questionTitleWrapper: {
+      marginTop: 22,
+      marginLeft: 116,
+    },
+    question1: {
+      fontSize: 25,
+      fontFamily: 'Montserrat-Bold',
+      color: colors.darkestGreen,
+    },
+  
+    questionWrapper: {
+      width: 317,
+      height: 74,
+      borderRadius: 14,
+      backgroundColor: colors.midGreen,
+      marginTop: 23,
+      marginLeft: 29,
+    },
+  
+    questionContent: {
+      fontSize: 20,
+      fontFamily: 'Lato-Bold',
+      color: '#fff',
+      paddingTop: 14,
+      alignItems: 'center',
+      textAlign: 'center',
     },
 
     bottomWrapper: {
@@ -101,5 +174,4 @@ const styles = StyleSheet.create({
       marginTop: 7,
       marginHorizontal: 23,
     },
-  });
-  
+});
