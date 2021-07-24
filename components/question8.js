@@ -79,11 +79,7 @@ export default function question8 ({ navigation }) {
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => navigation.navigate('question7')} style={styles.nextWrapper}> 
-                <View style={styles.nextBox}>
-                  <Text style={styles.nextText}>Next</Text>
-                </View>
-              </TouchableOpacity>
+            
             </View>
         </View>
 
