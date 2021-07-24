@@ -11,7 +11,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 import { Checkbox } from 'react-native-paper';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-
+import countryList from 'react-select-country-list';
+import CountryPicker from 'react-native-country-picker-modal';
 
 const RadioButton = ({ onPress, selected, children }) => {
   return (
