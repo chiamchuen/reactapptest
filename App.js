@@ -21,6 +21,7 @@ import question6 from './components/question6';
 import question7 from './components/question7';
 import question8 from './components/question8';
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -104,3 +105,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+
+module.expo
