@@ -11,7 +11,10 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 import Checkbox from 'expo-checkbox';
 
+
 export default function question5 ({ navigation }) {
+  const [checkboxState, setCheckboxState] = React.useState(false);
+
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
         'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -38,12 +41,63 @@ export default function question5 ({ navigation }) {
 
       {/* Question */}
       <View style={styles.questionTitleWrapper}>
-          <Text style={styles.question1}>Question 5</Text>
+          <Text style={styles.mainquestion}>Question 5</Text>
       </View>
 
       <View style={styles.questionWrapper}>
           <Text style={styles.questionContent}>Rate the severity of your {"\n"}headache.</Text>
       </View>
+
+      {/*
+      <Text style = {{fontSize: 16}, {fontFamily: 'Lato-Bold'}, {marginHorizontal: 181}}>
+        Mild
+      </Text>
+      */}
+
+
+      <Text style = {styles.bodyText}>Mild</Text>
+
+      <View style={styles.level_1_wrap}>
+          <Text style={styles.question1}>1</Text>
+      </View>
+      
+      <View style={styles.level_2_wrap}>
+          <Text style={styles.question1}>2</Text>
+      </View>
+
+      <View style={styles.level_3_wrap}>
+          <Text style={styles.question1}>3</Text>
+      </View>
+
+      <View style={styles.level_4_wrap}>
+          <Text style={styles.question1}>4</Text>
+      </View>
+
+      <View style={styles.level_5_wrap}>
+          <Text style={styles.question1}>5</Text>
+      </View>
+
+      <View style={styles.level_6_wrap}>
+          <Text style={styles.question1}>6</Text>
+      </View>
+
+      <View style={styles.level_7_wrap}>
+          <Text style={styles.question1}>7</Text>
+      </View>
+
+      <View style={styles.level_8_wrap}>
+          <Text style={styles.question1}>8</Text>
+      </View>
+
+      <View style={styles.level_9_wrap}>
+          <Text style={styles.question1}>9</Text>
+      </View>
+
+      <View style={styles.level_10_wrap}>
+          <Text style={styles.question1}>10</Text>
+      </View>
+
+      <Text style = {styles.bodyText2}>Very Severe</Text>
 
       {/* back and next */}
       <View style={styles.bottomWrapper}>
@@ -103,10 +157,16 @@ const styles = StyleSheet.create({
       marginTop: 22,
       marginLeft: 116,
     },
-    question1: {
+    mainquestion: {
       fontSize: 25,
       fontFamily: 'Montserrat-Bold',
       color: colors.darkestGreen,
+    },
+    question1: {
+      fontSize: 18,
+      fontFamily: 'Montserrat-Bold',
+      color: "#FFF",
+      marginHorizontal: 15,
     },
   
     questionWrapper: {
@@ -130,7 +190,7 @@ const styles = StyleSheet.create({
     bottomWrapper: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 300,
+      marginTop: 0,
     },
 
     backWrapper: {
@@ -174,4 +234,115 @@ const styles = StyleSheet.create({
       marginTop: 7,
       marginHorizontal: 23,
     },
+    bodyText: {
+      fontFamily: 'Lato-Bold',
+      fontSize: 16,
+      color: '#707070',
+      marginTop : 36,
+      marginHorizontal: 90,
+      
+    },
+    
+    bodyText2: {
+      fontFamily: 'Lato-Bold',
+      fontSize: 16,
+      color: '#707070',
+      marginTop : 10,
+      marginHorizontal: 90,
+      marginBottom: 14,
+      
+    },
+
+      level_1_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#FFE353',
+      marginTop: 0,
+      marginLeft: 150,
+    },
+    level_2_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#FFD84E',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_3_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#FFC328',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_4_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#FFB628',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_5_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#FF9900',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_6_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#F38300',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_7_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#FF6B00',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_8_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#FF5C00',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_9_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#F54108',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    level_10_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#D40000',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+    
+    level_10_wrap: {
+      width: 67,
+      height: 24,
+      borderRadius: 14,
+      backgroundColor: '#D40000',
+      marginTop: 7,
+      marginLeft: 150,
+    },
+
+
+
 });

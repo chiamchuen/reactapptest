@@ -13,6 +13,10 @@ import { Checkbox } from 'react-native-paper';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import countryList from 'react-select-country-list';
 import CountryPicker from 'react-native-country-picker-modal';
+import { Component } from 'react';
+
+var test = new Array();
+var qn1_1 = "";
 
 const RadioButton = ({ onPress, selected, children }) => {
   return (
@@ -28,20 +32,17 @@ const RadioButton = ({ onPress, selected, children }) => {
 };
 export default function Home ( { navigation }) {
 
-  const [isLiked, setIsLiked] = useState([
-    { id: 1, value: true, name: "No, I have not.", selected: false },
-    { id: 2, value: false, name: "Yes, I have.", selected: false }
-  ]);
+  const [checkboxState, setCheckboxState] = React.useState(false);
+  const [checkboxState2, setCheckboxState2] = React.useState(false);
 
-  const onRadioBtnClick = (item) => {
-    let updatedState = isLiked.map((isLikedItem) =>
-      isLikedItem.id === item.id
-        ? { ...isLikedItem, selected: true }
-        : { ...isLikedItem, selected: false }
-    );
-    setIsLiked(updatedState);
-  };
-
+  if (checkboxState === true && checkboxState2 === false) {
+    qn1_1 = "Yes";
+  }
+  else if (checkboxState === false && checkboxState2 === true) {
+    qn1_1 = "No";
+  }
+  
+  
   let[fontsLoaded, error]=useFonts({
     'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
     'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -77,40 +78,36 @@ export default function Home ( { navigation }) {
       <Text style={styles.questionContent}>Have you recently travelled to any country(s)? If yes, which?</Text>
     </View>
 
-    {/* options */}
-    {/*<View style={styles.optionsWrapper}>
-      <BouncyCheckbox
-        isChecked={checkboxState}
-        disableBuiltInState
-        onPress={() => setCheckboxState(!checkboxState)} 
-        fillColor={colors.darkestGreen} 
-        iconStyle={{ borderColor: colors.darkestGreen, borderRadius: 6, height: 23, width: 23, borderWidth: 1, }} 
-        text = "No, I have not." 
-        textStyle={{ fontFamily: 'Lato-Regular', textDecorationLine: 'none', }}
-      />
-    </View>
 
-    <View style={styles.optionsWrapper2}>
-      <BouncyCheckbox
-        isChecked={checkboxState}
-        disableBuiltInState
-        onPress={() => setCheckboxState(!checkboxState)} 
-        fillColor={colors.darkestGreen} 
-        iconStyle={{ borderColor: colors.darkestGreen, borderRadius: 6, height: 23, width: 23, borderWidth: 1, }} 
-        text = "Yes, I have." 
-        textStyle={{ fontFamily: 'Lato-Regular', textDecorationLine: 'none', }}
-      />
-    </View>
-  */}
-    {isLiked.map((item) => (
-      <RadioButton
-        onPress={() => onRadioBtnClick(item)}
-        selected={item.selected}
-        key={item.id}
-      >
-        {item.name}
-      </RadioButton>
-    ))}
+
+
+        <View style={styles.optionsWrapper2}>
+          <BouncyCheckbox 
+            isChecked={checkboxState}
+            disableBuiltInState
+            onPress={() => setCheckboxState(!checkboxState)} 
+            fillColor={colors.darkestGreen} 
+            iconStyle={{ borderColor: colors.darkestGreen, borderRadius: 6, height: 23, width: 23, borderWidth: 1, }} 
+            text = "Yes I have" 
+            textStyle={{ fontFamily: 'Lato-Regular', textDecorationLine: 'none', }}
+          />
+        </View>
+        <View style={styles.optionsWrapper2}>
+          <BouncyCheckbox 
+            isChecked={checkboxState2}
+            disableBuiltInState
+            onPress={() => setCheckboxState2(!checkboxState2)} 
+            fillColor={colors.darkestGreen} 
+            iconStyle={{ borderColor: colors.darkestGreen, borderRadius: 6, height: 23, width: 23, borderWidth: 1, }} 
+            text = "No I have not" 
+            textStyle={{ fontFamily: 'Lato-Regular', textDecorationLine: 'none', }}
+          />
+        </View>
+
+
+
+
+        {/*ensure that only one option can be selected*/}
 
     <View style={styles.selectWrapper}>
       <View style={styles.inputbox}>
@@ -127,25 +124,20 @@ export default function Home ( { navigation }) {
       <FontAwesome name="plus-square-o" size={23} color={'#707070'} />
       <Text style={styles.countryText}>Add another country</Text>
     </View>
-    {/*
-    <TouchableOpacity onPress={() => navigation.navigate('question2')}>
-      <View style={styles.nextWrapper}>
+
+    <TouchableOpacity 
+      onPress={() => navigation.navigate('question2', {qn1_1})} style={styles.nextWrapper}> 
         <View style={styles.nextBox}>
           <Text style={styles.nextText}>Next</Text>
         </View>
-      </View>
-    </TouchableOpacity>
-    */}
-    <TouchableOpacity onPress={() => navigation.navigate('question2')} style={styles.nextWrapper}> 
-      <View style={styles.nextBox}>
-        <Text style={styles.nextText}>Next</Text>
-      </View>
     </TouchableOpacity>
 
   </View>
   
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
