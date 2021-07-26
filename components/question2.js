@@ -49,22 +49,22 @@ export default function question2 ({route, navigation }) {
       qn2_3 = "Does not smokes"
     }
     if (checkboxState4 === true) {
-      qn2_4 = ""
+      qn2_4 = "Have Diabetes"
     }
     else {
-      qn2_4 = 0
+      qn2_4 = "Does not have diabetes"
     }
     if (checkboxState5 === true) {
-      qn2_5 = 1
+      qn2_5 = "High Cholesterol"
     }
     else {
-      qn2_5 = 0
+      qn2_5 = "Does not high cholesterol"
     }
     if (checkboxState6 === true) {
-      qn2_6 = 1
+      qn2_6 = "Hypertension"
     }
     else {
-      qn2_6 = 0
+      qn2_6 = "Does not have hypertension"
     }
 
     console.log(qn1_1)
@@ -169,7 +169,7 @@ export default function question2 ({route, navigation }) {
             onPress={() => setCheckboxState6(!checkboxState6)} 
             fillColor={colors.darkestGreen} 
             iconStyle={{ borderColor: colors.darkestGreen, borderRadius: 6, height: 23, width: 23, borderWidth: 1, }} 
-            text = "Have Hypdertension" 
+            text = "Have Hypertension" 
             textStyle={{ fontFamily: 'Lato-Regular', textDecorationLine: 'none', }}
           />
         </View>
