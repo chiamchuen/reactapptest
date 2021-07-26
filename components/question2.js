@@ -11,14 +11,63 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 import Checkbox from 'expo-checkbox';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import holder from './Home';
 
-export default function question2 ({ navigation }) {
+var qn2_1;
+var qn2_2;
+var qn2_3;
+var qn2_4;
+var qn2_5;
+var qn2_6;
+
+
+export default function question2 ({route, navigation }) {
+  const {qn1_1} = route.params;
+
   const [checkboxState, setCheckboxState] = React.useState(false);
   const [checkboxState2, setCheckboxState2] = React.useState(false);
   const [checkboxState3, setCheckboxState3] = React.useState(false);
   const [checkboxState4, setCheckboxState4] = React.useState(false);
   const [checkboxState5, setCheckboxState5] = React.useState(false);
   const [checkboxState6, setCheckboxState6] = React.useState(false);
+    if (checkboxState === true) {
+      qn2_1 = "Pregnant"
+    }
+    else {
+      qn2_2 = "Not Pregnant"
+    }
+    if (checkboxState2 === true) {
+      qn2_2 = "Overweight/Obese"
+    }
+    else {
+      qn2_2 = "Not Overweight/Obese"
+    }
+    if (checkboxState3 === true) {
+      qn2_3 = "Smokes"
+    }
+    else {
+      qn2_3 = "Does not smokes"
+    }
+    if (checkboxState4 === true) {
+      qn2_4 = ""
+    }
+    else {
+      qn2_4 = 0
+    }
+    if (checkboxState5 === true) {
+      qn2_5 = 1
+    }
+    else {
+      qn2_5 = 0
+    }
+    if (checkboxState6 === true) {
+      qn2_6 = 1
+    }
+    else {
+      qn2_6 = 0
+    }
+
+    console.log(qn1_1)
 
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
@@ -66,7 +115,7 @@ export default function question2 ({ navigation }) {
         </View>
 
         <View style={styles.optionsWrapper2}>
-          <BouncyCheckbox
+          <BouncyCheckbox 
             isChecked={checkboxState2}
             disableBuiltInState
             onPress={() => setCheckboxState2(!checkboxState2)} 
