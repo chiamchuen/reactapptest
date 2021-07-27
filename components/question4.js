@@ -10,6 +10,22 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 import Checkbox from 'expo-checkbox';
+import RadioButtonRN from 'radio-buttons-react-native';
+
+const data = [
+  {
+    label: 'Less than an hour'
+   },
+   {
+    label: 'A few hours'
+   },
+   {
+    label: 'More than a day'
+   },
+   {
+    label: 'A few days'
+   }
+];
 
 export default function question4 ({ navigation }) {
     let[fontsLoaded, error]=useFonts({
@@ -39,11 +55,18 @@ export default function question4 ({ navigation }) {
       <View style={styles.questionWrapper}>
         <Text style={styles.questionContent}>How long have these symptoms lasted for?</Text>
       </View>
-      
-      {/*symptom*/}
-      <Text style = {styles.symptomText}>Headache</Text>
 
-      {/*selects*/}
+      <RadioButtonRN
+            data={data}
+            selectedBtn={(e) => console.log(e)} 
+            box={false}
+            style={{ marginLeft: 70, marginTop: 50, alignItems: 'center', justifyContent: 'center' }}
+            textStyle={{ fontFamily: 'Lato-Regular', fontSize: 16, marginLeft: 30 }}
+            activeColor={colors.darkestGreen}
+      />
+
+      {/*
+      <Text style = {styles.symptomText}>Headache</Text>
         <View style={styles.selectWrapper}>
           <View style={styles.inputbox}>
             <View style={styles.arrowWrapper}>
@@ -54,7 +77,7 @@ export default function question4 ({ navigation }) {
             </View>
           </View>
         </View>
-
+      
       <Text style = {styles.symptomText}>Nausea</Text>
       <View style={styles.selectWrapper}>
           <View style={styles.inputbox}>
@@ -66,6 +89,9 @@ export default function question4 ({ navigation }) {
             </View>
           </View>
         </View>
+      */}
+
+
             {/* back and next */}
             <View style={styles.bottomWrapper}>
               <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backWrapper}>
