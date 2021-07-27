@@ -28,7 +28,10 @@ const data = [
    
 ];
 
-export default function question8 ({ navigation }) {
+
+
+export default function question8 ({route, navigation }) {
+    const {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6} = route.params;
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
         'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -39,6 +42,16 @@ export default function question8 ({ navigation }) {
     if (!fontsLoaded){
         return <AppLoading />
     }
+
+
+    var obj = {"pregnant":JSON.parse(qn2_1), "obese":JSON.parse(qn2_2), "smoker":JSON.parse(qn2_3), "diabetic": JSON.parse(qn2_4), 
+              "highcholestrol": JSON.parse(qn2_5), "hypertension": JSON.parse(qn2_6), "headache": JSON.parse(qn3_1), "fever": JSON.parse(qn3_2),
+              "fatigue": JSON.parse(qn3_3), "chills": JSON.parse(qn3_4), "runningnose": JSON.parse(qn3_5), "nausea" : JSON.parse(qn3_6),
+              "userid": false, "injury": false, "chestpain": false, "shortnessofbreath": false, "dizziness": false,
+              "vomit": false, "diarrhoea": false, "stomachache": false, "cough": false, "sorethroat": false};
+
+      console.log(obj)
+          
 
     return (
         <View style={styles.container}>

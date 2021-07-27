@@ -12,7 +12,16 @@ import { Triangle } from 'react-native-shape';
 import Checkbox from 'expo-checkbox';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
-export default function question3 ({ navigation }) {
+var qn3_1;
+var qn3_2;
+var qn3_3;
+var qn3_4;
+var qn3_5;
+var qn3_6;
+
+export default function question3 ({ route, navigation }) {
+
+    const {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6} = route.params;
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
         'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -28,7 +37,51 @@ export default function question3 ({ navigation }) {
     if (!fontsLoaded){
         return <AppLoading />
     }
-
+    
+    if (checkboxState === true) {
+      qn3_1 = "true"
+    }
+    else {
+      qn3_1 = "false"
+    }
+    if (checkboxState2 === true) {
+      qn3_2 = "true"
+    }
+    else {
+      qn3_2 = "false"
+    }
+    if (checkboxState3 === true) {
+      qn3_3 = "true"
+    }
+    else {
+      qn3_3 = "false"
+    }
+    if (checkboxState4 === true) {
+      qn3_4 = "true"
+    }
+    else {
+      qn3_4 = "false"
+    }
+    if (checkboxState5 === true) {
+      qn3_5 = "true"
+    }
+    else {
+      qn3_5 = "false"
+    }
+    if (checkboxState6 === true) {
+      qn3_6 = "true"
+    }
+    else {
+      qn3_6 = "false"
+    }
+    
+    this.qn1_1 = qn1_1
+    this.qn2_1 = qn2_1
+    this.qn2_2 = qn2_2
+    this.qn2_3 = qn2_3
+    this.qn2_4 = qn2_4
+    this.qn2_5 = qn2_5
+    this.qn2_6 = qn2_6
     return (
       <View style={styles.container}>
       {/* header */}
@@ -130,7 +183,7 @@ export default function question3 ({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('question4')} style={styles.nextWrapper}> 
+        <TouchableOpacity onPress={() => navigation.navigate('question4', {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6})} style={styles.nextWrapper}> 
           <View style={styles.nextBox}>
             <Text style={styles.nextText}>Next</Text>
           </View>

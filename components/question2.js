@@ -13,12 +13,12 @@ import Checkbox from 'expo-checkbox';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import holder from './Home';
 
-var qn2_1;
-var qn2_2;
-var qn2_3;
-var qn2_4;
-var qn2_5;
-var qn2_6;
+var qn2_1 = new Boolean;
+var qn2_2 = new Boolean;
+var qn2_3 = new Boolean;
+var qn2_4 = new Boolean;
+var qn2_5 = new Boolean;
+var qn2_6 = new Boolean;
 
 
 export default function question2 ({route, navigation }) {
@@ -31,43 +31,43 @@ export default function question2 ({route, navigation }) {
   const [checkboxState5, setCheckboxState5] = React.useState(false);
   const [checkboxState6, setCheckboxState6] = React.useState(false);
     if (checkboxState === true) {
-      qn2_1 = "Pregnant"
+      qn2_1 = "true"
     }
     else {
-      qn2_2 = "Not Pregnant"
+      qn2_1 = "false"
     }
     if (checkboxState2 === true) {
-      qn2_2 = "Overweight/Obese"
+      qn2_2 = "true"
     }
     else {
-      qn2_2 = "Not Overweight/Obese"
+      qn2_2 = "false"
     }
     if (checkboxState3 === true) {
-      qn2_3 = "Smokes"
+      qn2_3 = "true"
     }
     else {
-      qn2_3 = "Does not smokes"
+      qn2_3 = "false"
     }
     if (checkboxState4 === true) {
-      qn2_4 = "Have Diabetes"
+      qn2_4 = "true"
     }
     else {
-      qn2_4 = "Does not have diabetes"
+      qn2_4 = "false"
     }
     if (checkboxState5 === true) {
-      qn2_5 = "High Cholesterol"
+      qn2_5 = "true"
     }
     else {
-      qn2_5 = "Does not high cholesterol"
+      qn2_5 = "false"
     }
     if (checkboxState6 === true) {
-      qn2_6 = "Hypertension"
+      qn2_6 = "true"
     }
     else {
-      qn2_6 = "Does not have hypertension"
+      qn2_6 = "false"
     }
 
-    console.log(qn1_1)
+    this.qn1_1 = qn1_1
 
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
@@ -182,7 +182,7 @@ export default function question2 ({route, navigation }) {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.navigate('question3')} style={styles.nextWrapper}> 
+          <TouchableOpacity onPress={() => navigation.navigate('question3', {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6})} style={styles.nextWrapper}> 
             <View style={styles.nextBox}>
               <Text style={styles.nextText}>Next</Text>
             </View>

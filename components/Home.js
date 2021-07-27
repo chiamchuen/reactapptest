@@ -15,8 +15,7 @@ import countryList from 'react-select-country-list';
 import CountryPicker from 'react-native-country-picker-modal';
 import { Component } from 'react';
 
-var test = new Array();
-var qn1_1 = "";
+var qn1_1 = new Boolean;
 
 const RadioButton = ({ onPress, selected, children }) => {
   return (
@@ -36,10 +35,10 @@ export default function Home ( { navigation }) {
   const [checkboxState2, setCheckboxState2] = React.useState(false);
 
   if (checkboxState === true && checkboxState2 === false) {
-    qn1_1 = "Yes";
+    qn1_1 = true;
   }
   else if (checkboxState === false && checkboxState2 === true) {
-    qn1_1 = "No";
+    qn1_1 = false;
   }
   
   

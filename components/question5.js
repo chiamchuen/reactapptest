@@ -10,11 +10,46 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 import Checkbox from 'expo-checkbox';
+import RadioButtonRN from 'radio-buttons-react-native';
 
+const data = [
+  {
+    label: '1     (Least Severe)'
+   },
+   {
+    label: '2'
+   },
+   {
+    label: '3'
+   },
+   {
+    label: '4'
+   },
+   {
+    label: '5'
+   },
+   {
+    label: '6'
+   },
+   {
+    label: '7'
+   },
+   {
+    label: '8'
+   },
+   {
+    label: '9'
+   },
+   {
+    label: '10    (Most Severe)'
+   },
+   
+];
 
-export default function question5 ({ navigation }) {
+export default function question5 ({route, navigation }) {
+  const {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6} = route.params;
   const [checkboxState, setCheckboxState] = React.useState(false);
-
+ 
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
         'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -25,6 +60,20 @@ export default function question5 ({ navigation }) {
     if (!fontsLoaded){
         return <AppLoading />
     }
+    this.qn1_1 = qn1_1
+    this.qn2_1 = qn2_1
+    this.qn2_2 = qn2_2
+    this.qn2_3 = qn2_3
+    this.qn2_4 = qn2_4
+    this.qn2_5 = qn2_5
+    this.qn2_6 = qn2_6
+    this.qn3_1 = qn3_1
+    this.qn3_2 = qn3_2
+    this.qn3_3 = qn3_3
+    this.qn3_4 = qn3_4
+    this.qn3_5 = qn3_5
+    this.qn3_6 = qn3_6
+
 
     return (
       <View style={styles.container}>
@@ -48,56 +97,17 @@ export default function question5 ({ navigation }) {
           <Text style={styles.questionContent}>Rate the severity of your {"\n"}headache.</Text>
       </View>
 
-      {/*
-      <Text style = {{fontSize: 16}, {fontFamily: 'Lato-Bold'}, {marginHorizontal: 181}}>
-        Mild
-      </Text>
-      */}
 
 
-      <Text style = {styles.bodyText}>Mild</Text>
 
-      <View style={styles.level_1_wrap}>
-          <Text style={styles.question1}>1</Text>
-      </View>
-      
-      <View style={styles.level_2_wrap}>
-          <Text style={styles.question1}>2</Text>
-      </View>
-
-      <View style={styles.level_3_wrap}>
-          <Text style={styles.question1}>3</Text>
-      </View>
-
-      <View style={styles.level_4_wrap}>
-          <Text style={styles.question1}>4</Text>
-      </View>
-
-      <View style={styles.level_5_wrap}>
-          <Text style={styles.question1}>5</Text>
-      </View>
-
-      <View style={styles.level_6_wrap}>
-          <Text style={styles.question1}>6</Text>
-      </View>
-
-      <View style={styles.level_7_wrap}>
-          <Text style={styles.question1}>7</Text>
-      </View>
-
-      <View style={styles.level_8_wrap}>
-          <Text style={styles.question1}>8</Text>
-      </View>
-
-      <View style={styles.level_9_wrap}>
-          <Text style={styles.question1}>9</Text>
-      </View>
-
-      <View style={styles.level_10_wrap}>
-          <Text style={styles.question1}>10</Text>
-      </View>
-
-      <Text style = {styles.bodyText2}>Very Severe</Text>
+      <RadioButtonRN
+            data={data}
+            selectedBtn={(e) => console.log(e)} 
+            box={false}
+            style={{ marginLeft: 42, marginTop: 15 }}
+            textStyle={{ fontFamily: 'Lato-Regular', fontSize: 16, marginLeft: 30, }}
+            activeColor={colors.darkestGreen}
+          />
 
       {/* back and next */}
       <View style={styles.bottomWrapper}>
@@ -107,7 +117,7 @@ export default function question5 ({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('question6')} style={styles.nextWrapper}> 
+        <TouchableOpacity onPress={() => navigation.navigate('question6',{qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6})} style={styles.nextWrapper}> 
           <View style={styles.nextBox}>
             <Text style={styles.nextText}>Next</Text>
           </View>
@@ -190,7 +200,7 @@ const styles = StyleSheet.create({
     bottomWrapper: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 0,
+      marginTop: 20,
     },
 
     backWrapper: {
@@ -247,7 +257,7 @@ const styles = StyleSheet.create({
       fontFamily: 'Lato-Bold',
       fontSize: 16,
       color: '#707070',
-      marginTop : 10,
+      marginTop : 25,
       marginHorizontal: 90,
       marginBottom: 14,
       

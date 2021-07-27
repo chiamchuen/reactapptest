@@ -27,13 +27,30 @@ const data = [
    }
 ];
 
-export default function question4 ({ navigation }) {
+export default function question4 ({ route,  navigation }) {
+    const {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6} = route.params;
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
         'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
         'Montserrat-Bold':require('../assets/fonts/Montserrat-Bold.ttf'),
         'Montserrat-Regular':require('../assets/fonts/Montserrat-Regular.ttf')
       });
+
+      this.qn1_1 = qn1_1
+      this.qn2_1 = qn2_1
+      this.qn2_2 = qn2_2
+      this.qn2_3 = qn2_3
+      this.qn2_4 = qn2_4
+      this.qn2_5 = qn2_5
+      this.qn2_6 = qn2_6
+      this.qn3_1 = qn3_1
+      this.qn3_2 = qn3_2
+      this.qn3_3 = qn3_3
+      this.qn3_4 = qn3_4
+      this.qn3_5 = qn3_5
+      this.qn3_6 = qn3_6
+
+
 
     if (!fontsLoaded){
         return <AppLoading />
@@ -44,6 +61,11 @@ export default function question4 ({ navigation }) {
       {/* header */}
       <View style={styles.headerWrapper}>
         <Text style={styles.headerTitle}>Hello Doctor</Text>
+      </View>
+      {/* exit */}
+      <View style={styles.exitWrapper}>
+        <AntDesign name="caretleft" size={12} color={colors.darkestGreen} />
+        <Text style={styles.exitWord}>Exit</Text>
       </View>
 
       {/*question no.*/}
@@ -100,7 +122,7 @@ export default function question4 ({ navigation }) {
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => navigation.navigate('question5')} style={styles.nextWrapper}> 
+              <TouchableOpacity onPress={() => navigation.navigate('question5',{qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6})} style={styles.nextWrapper}> 
                 <View style={styles.nextBox}>
                   <Text style={styles.nextText}>Next</Text>
                 </View>
@@ -175,7 +197,7 @@ const styles = StyleSheet.create({
     bottomWrapper: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 200,
+      marginTop: 150,
       
     },
 

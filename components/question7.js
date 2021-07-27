@@ -33,7 +33,8 @@ const data = [
    }
    
 ];
-export default function question7 ({ navigation }) {
+export default function question7 ({route, navigation }) {
+    const {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6} = route.params;
     let[fontsLoaded, error]=useFonts({
         'Lato-Bold':require('../assets/fonts/Lato-Bold.ttf'),
         'Lato-Regular':require('../assets/fonts/Lato-Regular.ttf'),
@@ -44,7 +45,19 @@ export default function question7 ({ navigation }) {
     if (!fontsLoaded){
         return <AppLoading />
     }
-
+    this.qn1_1 = qn1_1
+    this.qn2_1 = qn2_1
+    this.qn2_2 = qn2_2
+    this.qn2_3 = qn2_3
+    this.qn2_4 = qn2_4
+    this.qn2_5 = qn2_5
+    this.qn2_6 = qn2_6
+    this.qn3_1 = qn3_1
+    this.qn3_2 = qn3_2
+    this.qn3_3 = qn3_3
+    this.qn3_4 = qn3_4
+    this.qn3_5 = qn3_5
+    this.qn3_6 = qn3_6
     return (
         <View style={styles.container}>
           {/* header */}
@@ -84,7 +97,7 @@ export default function question7 ({ navigation }) {
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => navigation.navigate('question8')} style={styles.nextWrapper}> 
+              <TouchableOpacity onPress={() => navigation.navigate('question8',{qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6})} style={styles.nextWrapper}> 
                 <View style={styles.nextBox}>
                   <Text style={styles.nextText}>Next</Text>
                 </View>
