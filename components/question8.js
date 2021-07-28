@@ -28,6 +28,12 @@ const data = [
    
 ];
 
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 
 
 export default function question8 ({route, navigation }) {
@@ -42,17 +48,15 @@ export default function question8 ({route, navigation }) {
     if (!fontsLoaded){
         return <AppLoading />
     }
-
+    var uniqueID = uuidv4();
 
     var obj = {"pregnant":JSON.parse(qn2_1), "obese":JSON.parse(qn2_2), "smoker":JSON.parse(qn2_3), "diabetic": JSON.parse(qn2_4), 
               "highcholestrol": JSON.parse(qn2_5), "hypertension": JSON.parse(qn2_6), "headache": JSON.parse(qn3_1), "fever": JSON.parse(qn3_2),
               "fatigue": JSON.parse(qn3_3), "chills": JSON.parse(qn3_4), "runningnose": JSON.parse(qn3_5), "nausea" : JSON.parse(qn3_6),
-              "userid": false, "injury": false, "chestpain": false, "shortnessofbreath": false, "dizziness": false,
+              "userid": uniqueID, "injury": false, "chestpain": false, "shortnessofbreath": false, "dizziness": false,
               "vomit": false, "diarrhoea": false, "stomachache": false, "cough": false, "sorethroat": false};
 
-      console.log(obj)
-          
-
+    console.log(obj)
     return (
         <View style={styles.container}>
 
