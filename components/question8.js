@@ -10,7 +10,6 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Triangle } from 'react-native-shape';
 import Checkbox from 'expo-checkbox';
-import RadioButtonRN from 'radio-buttons-react-native';
 
 const data = [
   {
@@ -50,14 +49,32 @@ export default function question8 ({route, navigation }) {
     }
     var uniqueID = uuidv4();
 
-    var obj = {"pregnant":JSON.parse(qn2_1), "obese":JSON.parse(qn2_2), "smoker":JSON.parse(qn2_3), "diabetic": JSON.parse(qn2_4), 
+    var data = {"pregnant":JSON.parse(qn2_1), "obese":JSON.parse(qn2_2), "smoker":JSON.parse(qn2_3), "diabetic": JSON.parse(qn2_4), 
               "highcholestrol": JSON.parse(qn2_5), "hypertension": JSON.parse(qn2_6), "headache": JSON.parse(qn3_1), "fever": JSON.parse(qn3_2),
               "fatigue": JSON.parse(qn3_3), "chills": JSON.parse(qn3_4), "runningnose": JSON.parse(qn3_5), "nausea" : JSON.parse(qn3_6),
-              "userid": uniqueID, "injury": false, "chestpain": false, "shortnessofbreath": false, "dizziness": false,
+              "userid": String(uniqueID), "injury": false, "chestpain": false, "shortnessofbreath": false, "dizziness": false,
               "vomit": false, "diarrhoea": false, "stomachache": false, "cough": false, "sorethroat": false};
 
-    console.log(obj)
+    console.log("reset")
+    console.log(data)
+    fetch('http://ptsv2.com/t/ob8gg-1598076748/post', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+
     return (
+      
         <View style={styles.container}>
 
           {/* header */}
@@ -77,7 +94,7 @@ export default function question8 ({route, navigation }) {
             <Text style={styles.question1}>Question 8</Text>
           </View>
 
-          <View style={styles.questionWrapper}>
+<View style={styles.questionWrapper}>
             <Text style={styles.questionContent}>How frequently do you    experience these headaches?</Text>
           </View>
           <RadioButtonRN
@@ -96,7 +113,11 @@ export default function question8 ({route, navigation }) {
                 </View>
               </TouchableOpacity>
 
-            
+              <TouchableOpacity> 
+                <View style={styles.nextBox}>
+                  <Text style={styles.nextText}>End</Text>
+                </View>
+              </TouchableOpacity>
             </View>
         </View>
 
@@ -111,68 +132,10 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
 
-    headerWrapper: {
-      backgroundColor: colors.lightGreen,
-      height: 105,
-      width: Dimensions.get('screen').width,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    headerTitle: {
-      fontSize: 22,
-      fontFamily: 'Montserrat-Bold',
-      color: '#fff',
-      paddingTop: 52,
-    },
-  
-    exitWrapper: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      paddingHorizontal: 28,
-      marginTop: 28,
-    },
-  
-  
-    exitWord: {
-      fontSize: 16,
-      fontFamily: 'Lato-Regular',
-      color: colors.darkestGreen,
-      marginLeft: 2,
-    },
-  
-    questionTitleWrapper: {
-      marginTop: 22,
-      marginLeft: 116,
-    },
-    question1: {
-      fontSize: 25,
-      fontFamily: 'Montserrat-Bold',
-      color: colors.darkestGreen,
-    },
-  
-    questionWrapper: {
-      width: 317,
-      height: 74,
-      borderRadius: 14,
-      backgroundColor: colors.midGreen,
-      marginTop: 23,
-      marginLeft: 29,
-    },
-  
-    questionContent: {
-      fontSize: 20,
-      fontFamily: 'Lato-Bold',
-      color: '#fff',
-      paddingTop: 10,
-
-      textAlign: 'center',
-    },
-  
     bottomWrapper: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 190,
+      marginTop: 300,
     },
 
     backWrapper: {
@@ -217,4 +180,3 @@ const styles = StyleSheet.create({
       marginHorizontal: 23,
     },
   });
-  
