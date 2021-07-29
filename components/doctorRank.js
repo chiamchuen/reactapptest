@@ -82,9 +82,11 @@ export default function doctorRank ({navigation}) {
           <Text style={styles.physicalText}>Physical consultation</Text>
       </View>
 
-      <View style={styles.seeAllWrapper}>
-          <Text style={styles.seeAllText}>See all</Text>
-      </View>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.seeAllWrapper}>
+        <View style={styles.seeAllBox}>
+            <Text style={styles.seeAllText}>See all</Text>
+        </View>
+      </TouchableOpacity>
 
       <View></View>
       <View style={{ flex: 1, flexDirection: 'row', }}>
@@ -226,8 +228,12 @@ const styles = StyleSheet.create({
     },
 
     seeAllWrapper: {
-        marginLeft: 142,
-        marginTop: 16,
+      marginLeft: 142,
+      marginTop: 16,
+
+    },
+
+    seeAllBox: {
         height: 38,
         width: 91,
         borderRadius: 38,

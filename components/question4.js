@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     bottomWrapper: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 150,
+      marginTop: 200,
       
     },
 
