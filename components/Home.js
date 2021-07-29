@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
   },
 
   nextWrapper: {
-    marginTop: 169,
+    marginTop: 160,
     marginLeft: 259,
   },
 

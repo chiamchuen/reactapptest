@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     },
 
     optionsWrapper: {
-      marginTop: 40,
+      marginTop: 35,
       marginHorizontal: 90,
       flexDirection: 'row',
       alignItems: 'center',
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     },
   
     optionsWrapper2: {
-      marginTop: 35,
+      marginTop: 39,
       marginHorizontal: 90,
       flexDirection: 'row',
       alignItems: 'center',

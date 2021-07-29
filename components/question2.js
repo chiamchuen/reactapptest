@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
       },
     
       optionsWrapper2: {
-        marginTop: 35,
+        marginTop: 37,
         marginHorizontal: 90,
         flexDirection: 'row',
         alignItems: 'center',
