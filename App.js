@@ -20,7 +20,7 @@ import question5 from './components/question5';
 import question6 from './components/question6';
 import question7 from './components/question7';
 import question8 from './components/question8';
-
+import doctorRank from './components/doctorRank';
 
 const Stack = createStackNavigator();
 
@@ -87,6 +87,14 @@ export default function App() {
         <Stack.Screen 
           name="question8" 
           component={question8} 
+          options={{ 
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen 
+          name="doctorRank" 
+          component={doctorRank} 
           options={{ 
             headerShown: false,
           }}

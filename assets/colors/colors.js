@@ -8,6 +8,7 @@ const colors = {
     doctorbutton: '#4AA0A0',
     input: '#F2F2F2',
     mild: '707070',
+    doctorHeader: '#7CD0D0',
 };
 
 export default colors;

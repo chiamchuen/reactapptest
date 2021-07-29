@@ -136,9 +136,9 @@ export default function question8 ({route, navigation }) {
                 </View>
               </TouchableOpacity>
               
-              <TouchableOpacity onPress={() => navigation.navigate('question8',{qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6})} style={styles.nextWrapper}> 
+              <TouchableOpacity onPress={() => navigation.navigate('doctorRank',{qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6})} style={styles.nextWrapper}> 
                 <View style={styles.nextBox}>
-                  <Text style={styles.nextText}>End</Text>
+                  <Text style={styles.nextText}>Next</Text>
                 </View>
               </TouchableOpacity>
 
