@@ -101,7 +101,7 @@ export default function question3 ({ route, navigation }) {
       </View>
 
       <View style={styles.questionWrapper}>
-          <Text style={styles.questionContent}>Do you have the symptoms listed below?</Text>
+          <Text style={styles.questionContent}>Do you have the symptoms {"\n"}listed below?</Text>
       </View>
         
       <View style={styles.optionsWrapper}>
@@ -252,9 +252,8 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'Lato-Bold',
       color: '#fff',
-      paddingTop: 12,
-      paddingLeft: 15,
-      alignItems: 'center',
+      marginTop:10,
+      textAlign: 'center',
     },
 
     optionsWrapper: {

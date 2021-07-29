@@ -78,7 +78,7 @@ export default function question7 ({route, navigation }) {
           </View>
 
           <View style={styles.questionWrapper}>
-            <Text style={styles.questionContent}>How long does your headache last?</Text>
+            <Text style={styles.questionContent}>How long does your headache{"\n"}last?</Text>
           </View>
 
           <RadioButtonRN
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'Lato-Bold',
       color: '#fff',
-      paddingTop: 10,
-      paddingLeft: 22,
+      marginTop:12,
+      textAlign: 'center',
     },
 
     bottomWrapper: {

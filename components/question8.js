@@ -36,6 +36,23 @@ function uuidv4() {
   });
 }
 
+function postthis() {
+  fetch('http://ptsv2.com/t/ob8gg-1598076748/post', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(sendthis),
+  })
+  .then(response => response.json())
+  .then(sendthis => {
+    console.log('Success:', sendthis);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
 
 export default function question8 ({route, navigation }) {
     const {qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6} = route.params;
@@ -76,6 +93,8 @@ export default function question8 ({route, navigation }) {
     .catch((error) => {
       console.error('Error:', error);
     });
+    
+
 
     return (
       
@@ -116,7 +135,12 @@ export default function question8 ({route, navigation }) {
                   <Text style={styles.backText}>Back</Text>
                 </View>
               </TouchableOpacity>
-
+              
+              <TouchableOpacity onPress={() => navigation.navigate('question8',{qn1_1,qn2_1,qn2_2,qn2_3,qn2_4,qn2_5,qn2_6,qn3_1,qn3_2,qn3_3,qn3_4,qn3_5,qn3_6})} style={styles.nextWrapper}> 
+                <View style={styles.nextBox}>
+                  <Text style={styles.nextText}>End</Text>
+                </View>
+              </TouchableOpacity>
 
             </View>
         </View>
@@ -185,8 +209,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Lato-Bold',
     color: '#fff',
-    paddingTop: 10,
-    paddingLeft: 22,
+    marginTop:12,
+    textAlign:'center',
   },
 
   bottomWrapper: {
@@ -235,5 +259,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginTop: 7,
     marginHorizontal: 23,
+    textAlign: 'center',
   },
 });

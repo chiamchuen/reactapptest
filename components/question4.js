@@ -190,8 +190,8 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'Lato-Bold',
       color: '#fff',
-      paddingTop: 12,
-      paddingLeft: 21,
+      marginTop:10,
+      textAlign: 'center',
     },
 
     bottomWrapper: {

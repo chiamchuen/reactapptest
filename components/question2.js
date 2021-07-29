@@ -99,7 +99,7 @@ export default function question2 ({route, navigation }) {
         </View>
 
         <View style={styles.questionWrapper}>
-            <Text style={styles.questionContent}>Select all the statements that apply to you.</Text>
+            <Text style={styles.questionContent}>Select all the statements {"\n"}that apply to you.</Text>
         </View>
         
         <View style={styles.optionsWrapper}>
@@ -252,9 +252,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'Lato-Bold',
         color: '#fff',
-        paddingTop: 10,
-        paddingLeft: 26,
-        alignItems: 'center',
+        textAlign: 'center',
+        marginTop:10,
       },
 
       optionsWrapper: {
@@ -262,6 +261,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 90,
         flexDirection: 'row',
         alignItems: 'center',
+
       },
     
       optionsBox: {

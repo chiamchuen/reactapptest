@@ -74,7 +74,7 @@ export default function Home ( { navigation }) {
     </View>
 
     <View style={styles.questionWrapper}>
-      <Text style={styles.questionContent}>Have you recently travelled to any country(s)? If yes, which?</Text>
+      <Text style={styles.questionContent}>Have you recently travelled to {"\n"}any country(s)? If yes, which?</Text>
     </View>
 
 
@@ -197,8 +197,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Lato-Bold',
     color: '#fff',
-    paddingTop: 10,
-    paddingLeft: 26,
+    textAlign: 'center',
+    marginTop: 10,
   },
 
   radioButtonContainer: {

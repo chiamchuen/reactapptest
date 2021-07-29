@@ -80,7 +80,7 @@ export default function question6 ({route, navigation }) {
           </View>
 
           <View style={styles.questionWrapper}>
-            <Text style={styles.questionContent}>Where is your headache located?</Text>
+            <Text style={styles.questionContent}>Where is your headache {"\n"}located?</Text>
           </View>
           <RadioButtonRN
             data={data}
@@ -170,8 +170,8 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'Lato-Bold',
       color: '#fff',
-      paddingTop: 10,
-      paddingLeft: 49,
+      marginTop:13,
+      textAlign: 'center',
     },
   
     bottomWrapper: {
